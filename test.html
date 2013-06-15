@@ -1,0 +1,22 @@
+<html>
+  <body>
+  	<font color="purple">test</font>
+    <canvas id="my_canvas"></canvas>
+  </body>  
+  <script>    
+  var canvas = null;
+    
+  setup = function() {
+  	canvas = document.getElementById(my_canvas);
+  	context = canvas.getContext('2d');
+  	canvas.width = 1200;
+  	canvas.height = 720;
+  	
+  	var img = new Image()
+  	img.src = 'bowser.png'
+  	context.drawImage(img, 0, 0);
+  }
+  
+  setup();
+  </script>
+</html>

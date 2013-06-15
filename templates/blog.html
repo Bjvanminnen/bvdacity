@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+	<a href="/blog" class="main-title">CS 253 Blog</a>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/main.css"/>
+  </head>
+	
+  <body>
+  <div id="content">
+    {% for entry in entries: %}
+    <div class="post">
+      <div class="post-heading">
+        <a href="/blog/{{entry.key().id()}}" class="post-title">{{entry.subject}}</a>
+      </div>
+      <div class="post-date">{{entry.created}}</div>
+      <div class="post-content">{{entry.content}}</div>
+    </div>
+    
+    
+    {% endfor %}
+  </div>
+  </body>
+	
+  
+	
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>bidgame</title>
+    <script type="text/javascript">
+      
+    function countdown()
+      {
+        id = document.getElementById("countdown") 
+        if (id == null)
+        	return
+        	
+        val = parseInt(id.innerHTML)
+        if (val == 0)
+        {
+          window.location.href = window.location.href
+        }
+        else
+        {
+          val -= 1
+          id.innerHTML = val
+          queueCountdown()
+        }
+      }
+      
+      function queueCountdown()
+      {        
+        setTimeout("countdown()", 1000)       
+      }
+  	</script>
+  </head>
+	
+  <body onload="queueCountdown()">
+    {{game.gstr()}}
+    
+    <label>
+     <div>Player 1: ${{game.p1_money}}</div>     
+    </label>
+    <label>
+     <div>Player 2: ${{game.p2_money}}</div>     
+    </label>
+    
+    
+    
+    <label>
+	  {% if game.p1_draw: %}
+	  <div>Draw owner: Player 1</div>
+      {% else: %}
+      <div>Draw owner: Player 2</div>
+      {% endif %}
+    </label>
+    
+    <br>
+    <label>
+      <div>{{info}}</div>
+      {% if my_bid != -1 %}
+      Reloading in <span id="countdown">15</span>
+      {% endif %}
+    </label>
+    
+    {% if my_bid == -1 %}
+    <form method="post">
+      <input type="text" name="bid"/>
+      <input type="hidden" name="round" value="{{game.rnd}}"/>
+      <input type="submit"/>
+    </form>
+    {% endif %}
+    
+    <label>
+      <div>{{error}}</div>
+    </label>
+  
+  </body>
+	
+  
+	
+</html>

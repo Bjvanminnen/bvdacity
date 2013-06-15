@@ -1,0 +1,46 @@
+application: bvdacity 
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: false
+
+libraries:
+- name: jinja2
+  version: latest
+
+handlers:
+- url: /
+  script: bvdacity.app
+
+- url: /rot13
+  script: rot13.app
+ 
+- url: /signup
+  script: signup.app
+- url: /welcome
+  script: signup.app
+- url: /login
+  script: signup.app  
+- url: /logout
+  script: signup.app  
+  
+  
+- url: /ascii
+  script: asciichan.app
+  
+- url: /bidgame/.*
+  script: bidgame.app
+
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /blog
+  script: blog.app
+- url: /blog/.*
+  script: blog.app
+ 
+- url: /unit4/play
+  script: unit4.play.app
+ 
+- url: /senet
+  static_dir: senet/
