@@ -1,0 +1,228 @@
+INFO     2013-08-12 17:28:27,080 sdk_update_checker.py:245] Checking for updates to the SDK.
+INFO     2013-08-12 17:28:27,168 sdk_update_checker.py:273] The SDK is up to date.
+WARNING  2013-08-12 17:28:27,173 api_server.py:317] Could not initialize images API; you are likely missing the Python "PIL" module.
+INFO     2013-08-12 17:28:27,176 api_server.py:138] Starting API server at: http://localhost:33890
+INFO     2013-08-12 17:28:27,215 dispatcher.py:164] Starting module "default" running at: http://ec2-50-19-50-151.compute-1.amazonaws.com:8080
+INFO     2013-08-12 17:28:27,217 admin_server.py:117] Starting admin server at: http://localhost:8000
+WARNING  2013-08-12 17:28:28,747 asciichan.py:57] ------
+WARNING  2013-08-12 17:28:28,748 asciichan.py:58] <google.appengine.ext.db.GqlQuery object at 0x7fbf4839b7d0>
+ERROR    2013-08-12 17:28:28,748 webapp2.py:1528] Missing argument for bind, requires argument #1, but only has 0 args.
+Traceback (most recent call last):
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1511, in __call__
+    rv = self.handle_exception(request, response, e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1505, in __call__
+    rv = self.router.dispatch(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1253, in default_dispatcher
+    return route.handler_adapter(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1077, in __call__
+    return handler.dispatch()
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 547, in dispatch
+    return self.handle_exception(e, self.app.debug)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 545, in dispatch
+    return method(*args, **kwargs)
+  File "/home/ubuntu/bvdacity/asciichan.py", line 66, in get
+    return self.render_front()
+  File "/home/ubuntu/bvdacity/asciichan.py", line 59, in render_front
+    for a in arts:
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2094, in __iter__
+    return self.run()
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2762, in run
+    return _BaseQuery.run(self, **kwargs)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2075, in run
+    raw_query = self._get_query()
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2766, in _get_query
+    self._cursor, self._end_cursor)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 326, in Bind
+    enumerated_queries = self.EnumerateQueries(used_args, args, keyword_args)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 407, in EnumerateQueries
+    value = self.__Operate(args, keyword_args, used_args, operator, params)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 625, in __Operate
+    value = self.__GetParam(param, args, keyword_args, used_args=used_args)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 676, in __GetParam
+    'but only has %i args.' % (param, num_args))
+BadArgumentError: Missing argument for bind, requires argument #1, but only has 0 args.
+ERROR    2013-08-12 17:28:28,754 wsgi.py:235] 
+Traceback (most recent call last):
+  File "/home/ubuntu/google_appengine/google/appengine/runtime/wsgi.py", line 223, in Handle
+    result = handler(dict(self._environ), self._StartResponse)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1519, in __call__
+    response = self._internal_error(e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1511, in __call__
+    rv = self.handle_exception(request, response, e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1505, in __call__
+    rv = self.router.dispatch(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1253, in default_dispatcher
+    return route.handler_adapter(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1077, in __call__
+    return handler.dispatch()
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 547, in dispatch
+    return self.handle_exception(e, self.app.debug)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 545, in dispatch
+    return method(*args, **kwargs)
+  File "/home/ubuntu/bvdacity/asciichan.py", line 66, in get
+    return self.render_front()
+  File "/home/ubuntu/bvdacity/asciichan.py", line 59, in render_front
+    for a in arts:
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2094, in __iter__
+    return self.run()
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2762, in run
+    return _BaseQuery.run(self, **kwargs)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2075, in run
+    raw_query = self._get_query()
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2766, in _get_query
+    self._cursor, self._end_cursor)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 326, in Bind
+    enumerated_queries = self.EnumerateQueries(used_args, args, keyword_args)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 407, in EnumerateQueries
+    value = self.__Operate(args, keyword_args, used_args, operator, params)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 625, in __Operate
+    value = self.__GetParam(param, args, keyword_args, used_args=used_args)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 676, in __GetParam
+    'but only has %i args.' % (param, num_args))
+BadArgumentError: Missing argument for bind, requires argument #1, but only has 0 args.
+INFO     2013-08-12 17:28:28,769 module.py:593] default: "GET /ascii HTTP/1.1" 500 -
+INFO     2013-08-12 17:28:29,125 module.py:593] default: "GET /favicon.ico HTTP/1.1" 404 -
+WARNING  2013-08-12 17:29:09,331 asciichan.py:57] ------
+WARNING  2013-08-12 17:29:09,331 asciichan.py:58] <google.appengine.ext.db.GqlQuery object at 0x7f9e6439d7d0>
+WARNING  2013-08-12 17:29:09,332 asciichan.py:61] -----
+ERROR    2013-08-12 17:29:09,343 webapp2.py:1528] Missing argument for bind, requires argument #1, but only has 0 args.
+Traceback (most recent call last):
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1511, in __call__
+    rv = self.handle_exception(request, response, e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1505, in __call__
+    rv = self.router.dispatch(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1253, in default_dispatcher
+    return route.handler_adapter(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1077, in __call__
+    return handler.dispatch()
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 547, in dispatch
+    return self.handle_exception(e, self.app.debug)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 545, in dispatch
+    return method(*args, **kwargs)
+  File "/home/ubuntu/bvdacity/asciichan.py", line 66, in get
+    return self.render_front()
+  File "/home/ubuntu/bvdacity/asciichan.py", line 63, in render_front
+    self.render("front.html", title=title, art=art, error=error, arts=arts)
+  File "/home/ubuntu/bvdacity/asciichan.py", line 23, in render
+    self.write(self.render_str(template, **kw))
+  File "/home/ubuntu/bvdacity/asciichan.py", line 20, in render_str
+    return t.render(params)
+  File "/home/ubuntu/google_appengine/lib/jinja2-2.6/jinja2/environment.py", line 894, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ubuntu/bvdacity/templates/front.html", line 65, in top-level template code
+    {% for a in arts %}
+BadArgumentError: Missing argument for bind, requires argument #1, but only has 0 args.
+ERROR    2013-08-12 17:29:09,347 wsgi.py:235] 
+Traceback (most recent call last):
+  File "/home/ubuntu/google_appengine/google/appengine/runtime/wsgi.py", line 223, in Handle
+    result = handler(dict(self._environ), self._StartResponse)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1519, in __call__
+    response = self._internal_error(e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1511, in __call__
+    rv = self.handle_exception(request, response, e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1505, in __call__
+    rv = self.router.dispatch(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1253, in default_dispatcher
+    return route.handler_adapter(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1077, in __call__
+    return handler.dispatch()
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 547, in dispatch
+    return self.handle_exception(e, self.app.debug)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 545, in dispatch
+    return method(*args, **kwargs)
+  File "/home/ubuntu/bvdacity/asciichan.py", line 66, in get
+    return self.render_front()
+  File "/home/ubuntu/bvdacity/asciichan.py", line 63, in render_front
+    self.render("front.html", title=title, art=art, error=error, arts=arts)
+  File "/home/ubuntu/bvdacity/asciichan.py", line 23, in render
+    self.write(self.render_str(template, **kw))
+  File "/home/ubuntu/bvdacity/asciichan.py", line 20, in render_str
+    return t.render(params)
+  File "/home/ubuntu/google_appengine/lib/jinja2-2.6/jinja2/environment.py", line 894, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/ubuntu/bvdacity/templates/front.html", line 65, in top-level template code
+    {% for a in arts %}
+BadArgumentError: Missing argument for bind, requires argument #1, but only has 0 args.
+INFO     2013-08-12 17:29:09,356 module.py:593] default: "GET /ascii HTTP/1.1" 500 -
+INFO     2013-08-12 17:29:09,703 module.py:593] default: "GET /favicon.ico HTTP/1.1" 404 -
+WARNING  2013-08-12 17:29:38,826 asciichan.py:57] ------
+WARNING  2013-08-12 17:29:38,827 asciichan.py:58] <google.appengine.ext.db.GqlQuery object at 0x7f831039d7d0>
+ERROR    2013-08-12 17:29:38,828 webapp2.py:1528] Missing argument for bind, requires argument #1, but only has 0 args.
+Traceback (most recent call last):
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1511, in __call__
+    rv = self.handle_exception(request, response, e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1505, in __call__
+    rv = self.router.dispatch(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1253, in default_dispatcher
+    return route.handler_adapter(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1077, in __call__
+    return handler.dispatch()
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 547, in dispatch
+    return self.handle_exception(e, self.app.debug)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 545, in dispatch
+    return method(*args, **kwargs)
+  File "/home/ubuntu/bvdacity/asciichan.py", line 66, in get
+    return self.render_front()
+  File "/home/ubuntu/bvdacity/asciichan.py", line 59, in render_front
+    for a in arts:
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2094, in __iter__
+    return self.run()
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2762, in run
+    return _BaseQuery.run(self, **kwargs)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2075, in run
+    raw_query = self._get_query()
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2766, in _get_query
+    self._cursor, self._end_cursor)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 326, in Bind
+    enumerated_queries = self.EnumerateQueries(used_args, args, keyword_args)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 407, in EnumerateQueries
+    value = self.__Operate(args, keyword_args, used_args, operator, params)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 625, in __Operate
+    value = self.__GetParam(param, args, keyword_args, used_args=used_args)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 676, in __GetParam
+    'but only has %i args.' % (param, num_args))
+BadArgumentError: Missing argument for bind, requires argument #1, but only has 0 args.
+ERROR    2013-08-12 17:29:38,834 wsgi.py:235] 
+Traceback (most recent call last):
+  File "/home/ubuntu/google_appengine/google/appengine/runtime/wsgi.py", line 223, in Handle
+    result = handler(dict(self._environ), self._StartResponse)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1519, in __call__
+    response = self._internal_error(e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1511, in __call__
+    rv = self.handle_exception(request, response, e)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1505, in __call__
+    rv = self.router.dispatch(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1253, in default_dispatcher
+    return route.handler_adapter(request, response)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 1077, in __call__
+    return handler.dispatch()
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 547, in dispatch
+    return self.handle_exception(e, self.app.debug)
+  File "/home/ubuntu/google_appengine/lib/webapp2-2.3/webapp2.py", line 545, in dispatch
+    return method(*args, **kwargs)
+  File "/home/ubuntu/bvdacity/asciichan.py", line 66, in get
+    return self.render_front()
+  File "/home/ubuntu/bvdacity/asciichan.py", line 59, in render_front
+    for a in arts:
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2094, in __iter__
+    return self.run()
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2762, in run
+    return _BaseQuery.run(self, **kwargs)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2075, in run
+    raw_query = self._get_query()
+  File "/home/ubuntu/google_appengine/google/appengine/ext/db/__init__.py", line 2766, in _get_query
+    self._cursor, self._end_cursor)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 326, in Bind
+    enumerated_queries = self.EnumerateQueries(used_args, args, keyword_args)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 407, in EnumerateQueries
+    value = self.__Operate(args, keyword_args, used_args, operator, params)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 625, in __Operate
+    value = self.__GetParam(param, args, keyword_args, used_args=used_args)
+  File "/home/ubuntu/google_appengine/google/appengine/ext/gql/__init__.py", line 676, in __GetParam
+    'but only has %i args.' % (param, num_args))
+BadArgumentError: Missing argument for bind, requires argument #1, but only has 0 args.
+INFO     2013-08-12 17:29:38,847 module.py:593] default: "GET /ascii HTTP/1.1" 500 -
+INFO     2013-08-12 17:29:39,222 module.py:593] default: "GET /favicon.ico HTTP/1.1" 404 -
+INFO     2013-08-12 17:49:23,206 shutdown.py:44] Shutting down.
+INFO     2013-08-12 17:49:23,301 api_server.py:514] Applying all pending transactions and saving the datastore
+INFO     2013-08-12 17:49:23,301 api_server.py:517] Saving search indexes

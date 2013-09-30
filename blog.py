@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 import os
 import logging
+import json
 
 from google.appengine.ext import db
 
@@ -36,6 +37,9 @@ class BlogEntry(db.Model):
     subject = db.StringProperty(required = True)
     content = db.TextProperty(required = True)
     created = db.DateTimeProperty(auto_now_add = True)
+
+    def asJSON(self):
+      return '{"subject": "%s", "content": "%s"}' % (self.subject, self.content)
     
 class NewPost(Handler):
     def get(self):
@@ -57,10 +61,29 @@ class NewPost(Handler):
             
             blog_id = str(entry.key().id())
             self.redirect("/blog/%s"%blog_id)
+
+
+
+class JSONMain(Handler):
+  def get(self):
+    entries = db.GqlQuery("SELECT * FROM BlogEntry")
+    self.response.headers["Content-Type"] = "application/json"
+
+    self.write("[" + ','.join(entry.asJSON() for entry in entries) + "]")
+
         
+class JSONPage(Handler):
+  def get(self, blog_id):
+    entry = BlogEntry.get_by_id(int(blog_id))
+    self.response.headers["Content-Type"] = "application/json"
+    self.write(entry.asJSON())
+    
+
 
 app = webapp2.WSGIApplication([('/blog', MainPage),
                                ('/blog/newpost', NewPost),
-                               ('/blog/([0-9]+)', BlogPage)], debug=True)
+                               ('/blog/([0-9]+)', BlogPage),
+                               ('/blog/.json', JSONMain),
+                               ('/blog/([0-9]+).json', JSONPage)], debug=True)
 
 

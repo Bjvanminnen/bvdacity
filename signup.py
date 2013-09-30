@@ -56,7 +56,7 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         cookie = self.request.cookies.get('user')        
         if cookie:
-            self.redirect('/welcome')
+            self.redirect('/blog/welcome')
         self.write_form(SignupForm.form_signup)
 
     def post(self):            
@@ -85,7 +85,7 @@ class MainPage(webapp2.RequestHandler):
         
         if success:
             add_user(username, make_pw_hash(username, password), self)            
-            self.redirect('/welcome')
+            self.redirect('/blog/welcome')
         else:
             self.write_form(SignupForm.form_signup, username, email, user_error,
                             password_error, match_error, email_error)
@@ -94,7 +94,7 @@ class WelcomeHandler(webapp2.RequestHandler):
     def get(self):
         cookie = self.request.cookies.get('user')        
         if not cookie:
-            self.redirect('/signup')        
+            self.redirect('/blog/signup')        
         
         self.response.out.write("Welcome, " + cookie)
         
@@ -130,17 +130,17 @@ class LoginHandler(webapp2.RequestHandler):
             return
          
         set_cookie(username, self)
-        self.redirect('/welcome')
+        self.redirect('/blog/welcome')
 
 class LogoutHandler(webapp2.RequestHandler):
     def get(self):
         set_cookie('', self)
-        self.redirect('/signup')
+        self.redirect('/blog/signup')
         
 
-app = webapp2.WSGIApplication([('/signup', MainPage),
-                               ('/welcome', WelcomeHandler),
-                               ('/login', LoginHandler),
-                               ('/logout', LogoutHandler)], debug=True)
+app = webapp2.WSGIApplication([('/blog/signup', MainPage),
+                               ('/blog/welcome', WelcomeHandler),
+                               ('/blog/login', LoginHandler),
+                               ('/blog/logout', LogoutHandler)], debug=True)
 
 

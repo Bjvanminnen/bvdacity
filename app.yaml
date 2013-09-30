@@ -15,13 +15,13 @@ handlers:
 - url: /rot13
   script: rot13.app
  
-- url: /signup
+- url: /blog/signup
   script: signup.app
-- url: /welcome
+- url: /blog/welcome
   script: signup.app
-- url: /login
+- url: /blog/login
   script: signup.app  
-- url: /logout
+- url: /blog/logout
   script: signup.app  
   
   
