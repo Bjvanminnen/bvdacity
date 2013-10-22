@@ -4,6 +4,9 @@ import os
 import logging
 import json
 
+from datetime import datetime
+
+from google.appengine.api import memcache
 from google.appengine.ext import db
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -23,14 +26,25 @@ class Handler(webapp2.RequestHandler):
 
 class MainPage(Handler):
     def get(self):
-        entries = db.GqlQuery("SELECT * FROM BlogEntry")
-        
-        self.render("blog.html", entries=entries)
+        key = 'MainPage'
+        entries = memcache.get(key)
+        if entries is None:
+          logging.error("DB query")
+          queryTime = datetime.now()
+          entries = db.GqlQuery("SELECT * FROM BlogEntry")
+          memcache.set(key, entries)
+          memcache.set("qt", queryTime)
+        else:
+          queryTime = memcache.get("qt")
+
+        now = datetime.now()
+        seconds = (now - queryTime).seconds
+        self.render("blog.html", entries=entries, seconds=seconds)
     
 class BlogPage(Handler):
     def get(self, blog_id):
         entry = BlogEntry.get_by_id(int(blog_id)) 
-        self.render("blog.html", entries=[entry])
+        self.render("blog.html", entries=[entry], seconds=100)
         
 
 class BlogEntry(db.Model):
