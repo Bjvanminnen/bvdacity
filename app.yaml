@@ -44,3 +44,6 @@ handlers:
  
 - url: /senet
   static_dir: senet/
+
+- url: /fooTest
+  static_dir: fooTest/

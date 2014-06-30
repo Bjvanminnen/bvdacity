@@ -43,8 +43,18 @@ class MainPage(Handler):
     
 class BlogPage(Handler):
     def get(self, blog_id):
-        entry = BlogEntry.get_by_id(int(blog_id)) 
-        self.render("blog.html", entries=[entry], seconds=100)
+        key = "id"
+        value = memcache.get(key)
+        if value is None:
+          entry = BlogEntry.get_by_id(int(blog_id))
+          queryTime = datetime.now()
+          memcache.set(key, (entry, queryTime))
+        else:
+          entry, queryTime = value
+
+        now = datetime.now()
+        seconds = (now - queryTime).seconds
+        self.render("blog.html", entries=[entry], seconds=seconds)
         
 
 class BlogEntry(db.Model):
@@ -92,12 +102,18 @@ class JSONPage(Handler):
     self.response.headers["Content-Type"] = "application/json"
     self.write(entry.asJSON())
     
+class Flusher(Handler):
+  def get(self):
+    memcache.flush_all()
+    self.redirect('/blog')
 
 
 app = webapp2.WSGIApplication([('/blog', MainPage),
                                ('/blog/newpost', NewPost),
                                ('/blog/([0-9]+)', BlogPage),
                                ('/blog/.json', JSONMain),
-                               ('/blog/([0-9]+).json', JSONPage)], debug=True)
+                               ('/blog/([0-9]+).json', JSONPage),
+                               ('/blog/flush', Flusher)
+                               ], debug=True)
 
 
